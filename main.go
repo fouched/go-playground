@@ -12,19 +12,23 @@ func main() {
 	post := NewPost()
 
 	fmt.Println("---- normal ----")
+	fmt.Println(post.Created)
 	fmt.Println(post.Title)
 	fmt.Println(post.Body)
 	modifyPost(post)
 	fmt.Println("---- modified ----")
+	fmt.Println(post.Created)
 	fmt.Println(post.Title)
 	fmt.Println(post.Body)
 
 	pPost := NewPointerPost()
 	fmt.Println("---- pointer ----")
+	fmt.Println(pPost.Created)
 	fmt.Println(pPost.Title)
 	fmt.Println(pPost.Body)
 	modifyPointerPost(pPost)
 	fmt.Println("---- modified ----")
+	fmt.Println(pPost.Created)
 	fmt.Println(pPost.Title)
 	fmt.Println(pPost.Body)
 

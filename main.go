@@ -2,13 +2,55 @@ package main
 
 import (
 	"fmt"
+	"golang.org/x/crypto/bcrypt"
 	"math/rand/v2"
+	"strings"
 )
 
 func main() {
 
 	//castingMapWithInterfaces()
+	//pointerSample()
+	//forSample()
+	//rangeSample()
+	//randomExample()
+	//hashPassword("password")
+	//sliceSplit()
+	getExtension("/uploads/jobseeker/1/hfx3hT7ZjjVVzzJtvbjz5LFHv.pdf")
+}
 
+func getExtension(s string) {
+	extIdx := strings.LastIndex(s, ".")
+	fmt.Println(s[extIdx:])
+}
+
+func sliceSplit() {
+	exploded := strings.Split("/admin/2/3/4", "/")
+	fmt.Println(exploded[4])
+}
+
+func hashPassword(p string) {
+	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(p), 12)
+	fmt.Println(string(hashedPassword))
+}
+
+func forSample() {
+	for i := 5; i >= 5*-1; i-- {
+		fmt.Println(i)
+	}
+	//for i := 5 * -1; i <= 5; i++ {
+	//	fmt.Println(i)
+	//}
+}
+
+func rangeSample() {
+
+	for i := range 10 {
+		fmt.Println(i)
+	}
+}
+
+func pointerSample() {
 	post := NewPost()
 
 	fmt.Println("---- normal ----")
@@ -31,7 +73,6 @@ func main() {
 	fmt.Println(pPost.Created)
 	fmt.Println(pPost.Title)
 	fmt.Println(pPost.Body)
-
 }
 
 func modifyPost(post Post) {
@@ -41,6 +82,12 @@ func modifyPost(post Post) {
 func modifyPointerPost(post *Post) {
 	post.Title = "Modified " + post.Title
 	post.Body = "Modified " + post.Body
+}
+
+func randomExample() {
+	fmt.Println(rand.IntN(2))
+	fmt.Println(rand.IntN(2))
+	fmt.Println(rand.IntN(2))
 }
 
 func castingMapWithInterfaces() {
@@ -70,7 +117,4 @@ func castingMapWithInterfaces() {
 	//	fmt.Println(post)
 	//}
 
-	fmt.Println(rand.IntN(2))
-	fmt.Println(rand.IntN(2))
-	fmt.Println(rand.IntN(2))
 }
